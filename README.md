@@ -151,31 +151,46 @@ Slot No. Registration No Color
 6 KA-01-HH-3141 Black
 
 Input:
-park KA­01­P­333 White
+park KA01P333 White
 Output:
 Allocated slot number: 4
 
 Input:
-park DL­12­AA­9999 White
+park DL12AA9999 White
 Output:
 Sorry, parking lot is full
 
 Input:
+
 registration_numbers_for_cars_with_colour White
+
 Output:
+
 KA-01-HH-1234, KA-01-HH-9999, KA-01-P-333
 
+
 Input:
+
 slot_numbers_for_cars_with_colour White
+
 Output:
+
 1, 2, 4
 
-Input:
-slot_number_for_registration_number KA-01-HH-3141
-Output:
-6
 
 Input:
-slot_number_for_registration_number MH-04-AY-1111
+
+slot_number_for_registration_number KA-01-HH-3141
+
 Output:
+
+6
+
+
+Input:
+
+slot_number_for_registration_number MH-04-AY-1111
+
+Output:
+
 Not found
