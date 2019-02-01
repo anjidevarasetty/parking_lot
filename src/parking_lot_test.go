@@ -25,24 +25,31 @@ func TestCreateParkingLot(t *testing.T) {
 }
 
 func TestParkCar(t *testing.T) {
-	parkCar("KA-01-HH-1234", "White")
-	parkCar("KA-01-HH-9999", "White")
+	if slotsCapacity != 0 {
+		parkCar("KA-01-HH-1234", "White")
+		parkCar("KA-01-HH-9999", "White")
+	} else {
+		createParkingLot("6")
+		
+		parkCar("KA-01-HH-1234", "White")
+		parkCar("KA-01-HH-9999", "White")
+	}
 
 	if slotsCapacity == 0 {
 		t.Errorf("Sorry, parking lot is not created")
-	} 
-
-	createParkingLot("6")
-	parkCar("KA-01-BB-0001", "Black")
-	parkCar("KA-01-HH-2701", "Blue")
-
-	if len(mapSlotCar) >= slotsCapacity {
-		t.Errorf("Sorry, parking lot is full")
 	}
 }
 
 func TestLeaveParking(t *testing.T) {
-	leaveParking("3")
+	if slotsCapacity != 0 {
+		leaveParking("2")
+	} else {
+		createParkingLot("6")
+		
+		parkCar("KA-01-HH-1234", "White")
+		parkCar("KA-01-HH-9999", "White")
+		leaveParking("2")
+	}
 
 	if slotsCapacity == 0 {
 		t.Errorf("Sorry, parking lot is not created")
@@ -50,17 +57,12 @@ func TestLeaveParking(t *testing.T) {
 }
 
 func TestGetStatus(t *testing.T) {
-	getStatus()
-
 	if slotsCapacity == 0 {
-		t.Errorf("Sorry, parking lot is not created")
-	} 
+		createParkingLot("6")
 
-	createParkingLot("6")
-
-	parkCar("KA-01-HH-1234", "White")
-	parkCar("KA-01-HH-9999", "White")
-
+		parkCar("KA-01-HH-1234", "White")
+		parkCar("KA-01-HH-9999", "White")
+	}
 	getStatus()
 
 	if slotsCapacity == 0 {
@@ -69,32 +71,27 @@ func TestGetStatus(t *testing.T) {
 }
 
 func TestGetRegistration_numbers_for_cars_with_colour(t *testing.T) {
-	getRegistration_numbers_for_cars_with_colour("White")
-
 	if slotsCapacity == 0 {
-		t.Errorf("Sorry, parking lot is not created")
-	} 
-
-	createParkingLot("6")
-	parkCar("KA-01-HH-1234", "White")
-	parkCar("KA-01-HH-9999", "White")
-
+		createParkingLot("6")
+	
+		parkCar("KA-01-HH-1234", "White")
+		parkCar("KA-01-HH-9999", "White")
+	}
+	
 	getRegistration_numbers_for_cars_with_colour("White")
+	
 	if slotsCapacity == 0 {
 		t.Errorf("Sorry, parking lot is not created")
 	} 
 }
 
 func TestGetSlot_numbers_for_cars_with_colour(t *testing.T) {
-	getSlot_numbers_for_cars_with_colour("White")
-
 	if slotsCapacity == 0 {
-		t.Errorf("Sorry, parking lot is not created")
-	} 
-
-	createParkingLot("6")
-	parkCar("KA-01-HH-1234", "White")
-	parkCar("KA-01-HH-9999", "White")
+		createParkingLot("6")
+	
+		parkCar("KA-01-HH-1234", "White")
+		parkCar("KA-01-HH-9999", "White")
+	}
 
 	getSlot_numbers_for_cars_with_colour("White")
 	
@@ -104,15 +101,12 @@ func TestGetSlot_numbers_for_cars_with_colour(t *testing.T) {
 }
 
 func TestGetSlot_number_for_registration_number(t *testing.T) {
-	getSlot_number_for_registration_number("KA-01-HH-1234")
-
 	if slotsCapacity == 0 {
-		t.Errorf("Sorry, parking lot is not created")
-	} 
-
-	createParkingLot("6")
-	parkCar("KA-01-HH-1234", "White")
-	parkCar("KA-01-HH-9999", "White")
+		createParkingLot("6")
+	
+		parkCar("KA-01-HH-1234", "White")
+		parkCar("KA-01-HH-9999", "White")
+	}
 
 	getSlot_number_for_registration_number("KA-01-HH-1234")
 	
