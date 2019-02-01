@@ -65,48 +65,83 @@ $ parking_lot
 Assuming a parking lot with 6 slots, the following commands should be run in sequence by typing them in at a prompt and should produce output as described below the command:
 
 Input:
+
 create_parking_lot 6
+
 Output:
+
 Created a parking lot with 6 slots
 
+
 Input:
+
 park KA-01-HH-1234 White
+
 Output:
+
 Allocated slot number: 1
 
+
 Input:
+
 park KA-01-HH-9999 White
+
 Output:
+
 Allocated slot number: 2
 
+
 Input:
+
 park KA-01-BB-0001 Black
+
 Output:
+
 Allocated slot number: 3
 
+
 Input:
+
 park KA-01-HH-7777 Red
+
 Output:
+
 Allocated slot number: 4
 
+
 Input:
+
 park KA-01-HH-2701 Blue
+
 Output:
+
 Allocated slot number: 5
 
+
 Input:
+
 park KA-01-HH-3141 Black
+
 Output:
+
 Allocated slot number: 6
 
-Input:
-leave 4
-Output:
-Slot number 4 is free
 
 Input:
-status
+
+leave 4
+
 Output:
+
+Slot number 4 is free
+
+
+Input:
+
+status
+
+Output:
+
 Slot No. Registration No Color
 
 1 KA-01-HH-1234 White
